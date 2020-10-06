@@ -1,5 +1,10 @@
 FROM ubuntu:20.04
 
+#      sddm \
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt install -y \
-   kubuntu-desktop \
+     kubuntu-desktop \
+   && apt purge -y \
+     gdm \
+     gdm3 \
    && rm -rf /var/lib/apt/lists/*
